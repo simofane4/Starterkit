@@ -26,21 +26,25 @@
 </head>
 
 
-<body data-sidebar="dark">
+<body data-sidebar="dark" data-layout="horizontal">
     <!-- Begin page -->
     <div id="layout-wrapper">
-        {% block header %}
-        {% include 'partials/header2.html' %}
-        {% endblock %}
+        {% comment %}
+            {% block header %}
+            {% include 'partials/header2.html' %}
+            {% endblock %}
+        {% endcomment %}
         {% comment %} {% block sidebar %}
         {% include 'partials/sidebar.html' %}
         {% endblock %} {% endcomment %}
-        {% comment %} {% block header %}
+        {% block header %}
         {% include 'partials/hori-header.html' %}
         {% endblock %}
+        {% comment %} 
         {% block sidebar %}
         {% include 'partials/hori-sidebar.html' %}
-        {% endblock %} {% endcomment %}
+        {% endblock %}
+        {% endcomment %}
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
