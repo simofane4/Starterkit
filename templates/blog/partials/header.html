@@ -1,0 +1,244 @@
+<header>
+    <div class="header_middle">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-3">
+                    <div class="logo">
+                        <a href="index.html"><img src="{% static 'blog/img/logo/logo.png' %}" alt="exporso logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-8">
+                    <div class="category_search">
+                        <form action="#">
+                            <div class="category_search_inner">
+                                <div class="select">
+                                    <select name="categroy_search">
+                                        <option value="1" selected>All Categories</option>
+                                        <option value="2" >Latest Bikes</option>
+                                        <option value="3" >Upcoming Bike</option>
+                                        <option value="4" >popular Bike</option>
+                                        <option value="5" >Best Selling Bike</option>
+                                    </select>
+                                </div>
+                                <div class="search">
+                                    <input type="text" placeholder="Search Keyword Here">
+                                </div>
+                                <div class="submit">
+                                    <button type="submit"><i class="zmdi zmdi-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-1">
+                    <div class="mini_cart_box_wrapper text-right">
+                        <a href="#">
+                            <img src="{% static 'blog/img/icon/cart.png' %}" alt="Mini Cart Icon">
+                            <span class="cart_count">02</span>
+                        </a>
+                        <ul class="mini_cart_box">
+                            <li class="single_product_cart">
+                                <div class="cart_img">
+                                    <a href="product-details.html"><img src="{% static 'blog/img/product/pro_sm_1.png' %}" alt=""></a>
+                                </div>
+                                <div class="cart_title">
+                                    <h5><a href="product-details.html"> Soffer Pro x33</a></h5>
+                                    <h6><a href="#">Black</a></h6>
+                                    <span>$95.00 x 1</span>
+                                </div>
+                                <div class="cart_delete">
+                                    <a href="#"><i class="zmdi zmdi-delete"></i></a>
+                                </div>
+                            </li>
+                            <li class="single_product_cart">
+                                <div class="cart_img">
+                                    <a href="product-details.html"><img src="{% static 'blog/img/product/pro_sm_2.png' %}" alt=""></a>
+                                </div>
+                                <div class="cart_title">
+                                    <h5><a href="product-details.html"> Lotafaj una khdii</a></h5>
+                                    <h6><a href="#">Black</a></h6>
+                                    <span>$85.00 x 1</span>
+                                </div>
+                                <div class="cart_delete">
+                                    <a href="#"><i class="zmdi zmdi-delete"></i></a>
+                                </div>
+                            </li>
+                            
+                            <li class="cart_space">
+                                <div class="cart_sub">
+                                    <h4>Subtotal</h4>
+                                </div>
+                                <div class="cart_price">
+                                    <h4>$180.00</h4>
+                                </div>
+                            </li>
+                            <li class="cart_btn_wrapper">
+                                <a class="cart_btn" href="cart.html">view cart</a>
+                                <a class="cart_btn " href="checkout.html">checkout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-12">
+                    <div class="menu d-none d-lg-block ">
+                        <nav>
+                            <ul>                                                  
+                                <li><a href="index.html">HOME <i class="zmdi zmdi-chevron-down"></i> </a>
+                                    <ul class="sub_menu">
+                                        <li><a href="index.html">Home 1</a></li>
+                                        <li><a href="index-2.html">Home 2</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about-us.html">About</a></li>
+                                <li><a href="shop.html">Shop <i class="zmdi zmdi-chevron-down"></i></a>
+                                    <ul class="sub_menu">
+                                        <li><a href="shop.html">Shop </a></li>
+                                        <li><a href="shop-list-right-sidebar.html">shop Right Sidebar</a></li>
+                                        <li><a href="shop-without-sidebar.html">shop without Sidebar</a></li>
+                                        <li><a href="product-details.html">Product Details </a></li>
+                                        <li><a href="product-details-sidebar.html">Product Details Sidebar </a></li>
+                                        <li><a href="checkout.html">Checkout </a></li>
+                                        <li><a href="cart.html">Cart</a></li>
+                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                        <li><a href="my-account.html">My Account</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="blog.html">Blog <i class="zmdi zmdi-chevron-down"></i></a>
+                                    <ul class="sub_menu">
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
+                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact-us.html">CONTACT </a></li>
+                                <li class="mega_item"><a href="#">Features <i class="zmdi zmdi-chevron-down"></i></a>
+                                    <ul class="mega_menu">
+                                        <li><a href="#">Column1</a>
+                                            <ul class="mega_dropdown">
+                                                <li><a href="shop.html">Shop </a></li>
+                                                <li><a href="shop-list.html">Shop List</a></li>
+                                                <li><a href="shop-right-sidebar.html">Shop Right Sidebar </a></li>
+                                                <li><a href="shop-without-sidebar.html">Shop without Sidebar </a></li>
+                                                <li><a href="shop-list-without-sidebar.html">Shop List without Sidebar </a></li>
+                                                <li><a href="product-details.html">Product Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Column2</a>
+                                            <ul class="mega_dropdown">
+                                                <li><a href="product-details-sidebar.html">product Details Sidebar</a></li>
+                                                <li><a href="cart.html">Cart</a></li>
+                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><a href="wishlist.html">wishlist</a></li>
+                                                <li><a href="my-account.html">My account</a></li>
+                                                <li><a href="login.html">login</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Column3</a>
+                                            <ul class="mega_dropdown">
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
+                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="about-us.html">About Us </a></li>
+                                                <li><a href="contact-us.html">Contact Us </a></li>
+                                                <li><a href="404.html">404</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="header_right_info">
+                        <ul>
+                            <li><a href="wishlist.html">Wishlist<span> <i class="zmdi zmdi-favorite-outline"></i> (0) </span></a></li>
+                            <li> <a href="login.html">Login</a></li>							                    
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 d-lg-none">
+                    <!--Mobile menu murkup start-->
+                    <div class="mobile-menu-area d-lg-none">
+                        <div class="mobile-menu clearfix">
+                            <nav>
+                                <ul>                                                  
+                                    <li><a href="index.html">HOME </a>
+                                        <ul>
+                                            <li><a href="index.html">Home 1</a></li>
+                                            <li><a href="index-2.html">Home 2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about-us.html">About</a></li>
+                                    <li><a href="shop.html">Shop</a>
+                                        <ul>
+                                            <li><a href="shop.html">Shop </a></li>
+                                            <li><a href="shop-list-right-sidebar.html">shop Right Sidebar</a></li>
+                                            <li><a href="shop-without-sidebar.html">shop without Sidebar</a></li>
+                                            <li><a href="product-details.html">Product Details </a></li>
+                                            <li><a href="product-details-sidebar.html">Product Details Sidebar </a></li>
+                                            <li><a href="checkout.html">Checkout </a></li>
+                                            <li><a href="cart.html">Cart</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li><a href="my-account.html">My Account</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="blog.html">Blog</a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact-us.html">CONTACT </a></li>
+                                    <li ><a href="#">Features</a>
+                                        <ul >
+                                            <li><a href="#">Column1</a>
+                                                <ul >
+                                                    <li><a href="shop.html">Shop </a></li>
+                                                    <li><a href="shop-list.html">Shop List</a></li>
+                                                    <li><a href="shop-right-sidebar.html">Shop Right Sidebar </a></li>
+                                                    <li><a href="shop-without-sidebar.html">Shop without Sidebar </a></li>
+                                                    <li><a href="shop-list-without-sidebar.html">Shop List without Sidebar </a></li>
+                                                    <li><a href="product-details.html">Product Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Column2</a>
+                                                <ul>
+                                                    <li><a href="product-details-sidebar.html">product Details Sidebar</a></li>
+                                                    <li><a href="cart.html">Cart</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="wishlist.html">wishlist</a></li>
+                                                    <li><a href="my-account.html">My account</a></li>
+                                                    <li><a href="login.html">login</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Column3</a>
+                                                <ul>
+                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
+                                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                                    <li><a href="about-us.html">About Us </a></li>
+                                                    <li><a href="contact-us.html">Contact Us </a></li>
+                                                    <li><a href="404.html">404</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!--Mobile menu murkup End-->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</header>
