@@ -23,6 +23,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # External User View
     path('',views.HomeView.as_view(),name='home'),
+    # Ecomerce  View ______________
+    # About us 
+    path('about/', views.AboutView.as_view(),name='about'),
+    path('shop/', views.ShopView.as_view(),name='shop'),
+    path('blog/', views.BlogView.as_view(),name='blog'),
+    path('contact/', views.View.as_view(),name='contact'),
+    
+    
     # Dashboards View
     
     path('dashboard/',views.DashboardView.as_view(),name='dashboard'),

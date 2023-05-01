@@ -26,57 +26,25 @@
             
             <div class="exporso_wrapper">
 
+                <!-- header start-->
+                {% include 'blog/partials/header.html' %}
+                <!--header end-->
                
                 {% block content %}
-                {% endblock content %}
-                <!-- slider-area-start -->
-              
-                <!-- slider-area-end -->
-           
-               <!--Banner area start-->
-                
 
-               <!--Banner area end-->
-               
-               
-                <!--Hot Deal product start-->
-                
-                <!--Hot Deal product end-->  
-                
-                                          
-                <!--Hot Deal product start-->
-                
-                <!--Hot Deal product end-->
-                
-                
-                <!--Banner product section-->
-                
-                <!--Banner product section end-->
-                
-                
-                <!--Full Width  banner start-->
-                
-                <!--Full Width Banner end-->
-               
-                <!--Latest Post start-->
-                
-                <!--Latest Post end-->
-                
+                {% endblock content %}
                 <!--Newsletter section start -->
-                
+                {% include 'blog/partials/newsletter.html' %}
                 <!--Newsletter section end -->
                 
                 <!--Footer start-->
-                
+                {% include 'blog/partials/footer.html' %}
                 <!--Footer end-->
                
                
                 
             </div>
-            
- 
-        
-		
+
 		<!-- all js here -->
         <script src="{% static 'blog/js/vendor/jquery-1.12.0.min.js' %}"></script>
         <script src="{% static 'blog/js/popper.js' %}"></script>

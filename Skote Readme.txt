@@ -272,3 +272,10 @@ alreadyVisited = "rtl-mode-switch";
 >>>Run your project
 -Windows:-python manage.py runserver
 -Linux:-python3 manage.py runserver
+
+
+ABOUT
+SHOP 
+BLOG 
+CONTACT
+FEATURES 

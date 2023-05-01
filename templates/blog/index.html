@@ -1,46 +1,53 @@
 {% extends 'blog/partials/base.html' %}
-<!-- header start-->
-{% include 'blog/partials/header.html' %}
+{% load static %}
 
-<!--header end-->
+
+
+{% block content %}
+
 
 <!-- slider-area-start -->
 {% include 'blog/partials/slider.html' %}
 <!-- slider-area-end -->
 
 <!--Banner area start-->
-
+{% include 'blog/partials/banner.html' %}
 
 <!--Banner area end-->
 
 
 <!--Hot Deal product start-->
-
+{% include 'blog/partials/hot_deal_product.html' %}
 <!--Hot Deal product end-->  
 
                         
 <!--Hot Deal product start-->
-
+{% include 'blog/partials/hot_deal_product_2.html' %}
 <!--Hot Deal product end-->
 
 
 <!--Banner product section-->
-
+{% include 'blog/partials/banner_product.html' %}
 <!--Banner product section end-->
 
 
 <!--Full Width  banner start-->
-
+{% include 'blog/partials/full_width_banner.html' %}
 <!--Full Width Banner end-->
 
 <!--Latest Post start-->
-
+{% include 'blog/partials/latest_post.html' %}
 <!--Latest Post end-->
 
+{% comment " " %}
 <!--Newsletter section start -->
-
+{% include 'blog/partials/newsletter.html' %}
 <!--Newsletter section end -->
 
 <!--Footer start-->
-
+{% include 'blog/partials/footer.html' %}
 <!--Footer end-->
+
+{% endcomment %}
+
+{% endblock content %}
