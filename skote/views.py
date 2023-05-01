@@ -6,7 +6,20 @@ from django.views.generic.base import TemplateView
 from allauth.account.views import PasswordSetView,PasswordChangeView
 from django.urls import reverse_lazy
 
+
 # utillity
+
+def custom_page_not_found_view(request, exception):
+    return render(request, "404.html", {})
+
+def custom_error_view(request, exception=None):
+    return render(request, "404.html", {})
+
+def custom_permission_denied_view(request, exception=None):
+    return render(request, "403.html", {})
+
+def custom_bad_request_view(request, exception=None):
+    return render(request, "400.html", {})
 
 class HomeView(View):
     def get(self, request):
@@ -49,7 +62,7 @@ class  ContactView(View):
         greeting = {}
         greeting['heading'] = "Home"
         greeting['pageview'] = "Contact-us"
-        return render(request,'blog/pages/checkout.html',greeting)
+        return render(request,'blog/pages/contact-us.html',greeting)
 
 
 class DashboardView(LoginRequiredMixin,View):

@@ -1,4 +1,8 @@
+{% extends 'blog/partials/base.html' %}
+{% load static %} 
 
+{% block content %}
+{% include 'blog/partials/breadcrumb.html' %}
 <!--Contact us start-->
 <div class="contact-us pt-110 pb-100">
     <div class="container">
@@ -97,3 +101,5 @@
      </div>
 </div>
 <!--Contact us end-->
+
+{% endblock content %}

@@ -19,6 +19,13 @@ from skote import views
 from .views import MyPasswordSetView ,MyPasswordChangeView
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
+
+
+handler404 = 'skote.views.custom_page_not_found_view'
+handler500 = 'skote.views.custom_error_view'
+handler403 = 'skote.views.custom_permission_denied_view'
+handler400 = 'skote.views.custom_bad_request_view'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # External User View
@@ -28,7 +35,7 @@ urlpatterns = [
     path('about/', views.AboutView.as_view(),name='about'),
     path('shop/', views.ShopView.as_view(),name='shop'),
     path('blog/', views.BlogView.as_view(),name='blog'),
-    path('contact/', views.View.as_view(),name='contact'),
+    path('contact/', views.ContactView.as_view(),name='contact'),
     
     
     # Dashboards View

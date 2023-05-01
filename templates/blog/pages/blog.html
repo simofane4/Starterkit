@@ -1,3 +1,8 @@
+{% extends 'blog/partials/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'blog/partials/breadcrumb.html' %}
 <div class="blog_area pt-105 pb-100">
     <div class="container">
         <div class="row">
@@ -228,3 +233,5 @@
         </div>
     </div>
 </div>
+{% endblock content %}
+
