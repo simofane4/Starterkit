@@ -71,6 +71,9 @@ class DashboardView(LoginRequiredMixin,View):
         greeting['heading'] = "Dashboard"
         greeting['pageview'] = "Dashboards"        
         return render(request, 'dashboard/dashboard.html',greeting)
+    
+    
+    
 class MyPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     success_url = reverse_lazy('dashboard')
 class MyPasswordSetView(LoginRequiredMixin, PasswordSetView):
