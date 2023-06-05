@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect,get_object_or_404
-from .models import Post, FavouritePost,Profile, Comment
+from core.models import Post, FavouritePost,Profile, Comment
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -24,6 +24,7 @@ from django.views import View
 
 class AboutView(View):
     def get(self, request):
+
         greeting = {}
         greeting['heading'] = "Home"
         greeting['pageview'] = "About-us"
@@ -33,9 +34,20 @@ class AboutView(View):
 
 class BlogView(View):
     def get(self, request):
+        posts_list = Post.objects.all().order_by('created_on')
+        post_pages = Paginator(posts_list,9)
+        page = request.GET.get('page', 1)
+        try:
+            posts = post_pages.page(page)
+        except PageNotAnInteger:
+            posts = post_pages.page(1)
+        except EmptyPage:
+            posts = post_pages.page(post_pages.num_pages)
+            
         greeting = {}
         greeting['heading'] = "Home"
         greeting['pageview'] = "Blog"
+        greeting['posts']= posts
         return render(request,'blog/pages/blog.html',greeting)
     
 class BlogDetailsView(View):
@@ -46,8 +58,12 @@ class BlogDetailsView(View):
         return render(request,'blog/pages/blog-details.html',greeting)
     
     
-    
-    
+class  ContactView(View):
+    def get(self, request):
+        greeting = {}
+        greeting['heading'] = "Home"
+        greeting['pageview'] = "Contact-us"
+        return render(request,'blog/pages/contact-us.html',greeting)
     
     
     
@@ -101,49 +117,8 @@ def signup(request):
     return render(request, "signup.html")
 
 
-def postlist(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
-    
-    # post_list= Paginator(Post.objects.all().order_by('-created_on'),2)
-    # page= request.GET.get('page')
 
-    # try:
-    #     posts = post_list.page(page)
-    # except PageNotAnInteger:
-    #     posts = post_list.page(1)
-    # except EmptyPage:
-    #     posts = post_list.page(post_list.num_pages)
 
-    # return render(request,'index.html', {"post_list": posts})
-    return render(request, "index.html")
-
-def fetch(request):
-    post_list= Paginator(Post.objects.all().order_by('-created_on'),2)
-    page=request.POST.get("page")
-
-    try:
-        posts = post_list.page(page)
-    except PageNotAnInteger:
-        posts = post_list.page(1)
-    except EmptyPage:
-        posts = post_list.page(post_list.num_pages)
-
-    post_dic = {
-        "number": posts.number,
-        "has_next": posts.has_next(),
-        "has_previous": posts.has_previous(),
-        "posts": []
-    }
-
-    for i in post_list.page(page):
-        post_dic["posts"].append(i.__dict__)
-    
-    for i in post_dic["posts"]:
-        i["author"]=User.objects.get(id = i.get("author_id")).username
-
-   
-    return JsonResponse({"post_list": json.dumps(post_dic, default = default)})
 
 def postdetail(request, slug):
     if not request.user.is_authenticated:
@@ -151,10 +126,10 @@ def postdetail(request, slug):
         
     post = Post.objects.get(slug=slug)
     comments=Comment.objects.filter(post=post, parent__isnull=True).order_by('-id')
-   
+    
     post.read_count += 1
     post.save()
-
+    recent = Post.objects.all().order_by('-id')[:3][::-1]
     Favourites,_ = FavouritePost.objects.get_or_create(user=request.user)
     post_in_favorites = None
     if post in Favourites.posts.all():
@@ -192,8 +167,8 @@ def postdetail(request, slug):
     else:
         comment_form = CommentForm()
 
-    return render(request, 'detail.html', {'post': post, 'post_in_favorites': post_in_favorites,
-                                   'comments' : comments, 'comment_form' : comment_form})
+    return render(request, 'blog/pages/blog-details.html', {'post': post, 'post_in_favorites': post_in_favorites,
+                                   'comments' : comments, 'comment_form' : comment_form,'recent':recent})
 
 
 def Favorites(request, slug):
@@ -283,7 +258,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 #from .forms import UserForm, ProfileForm
 from django.contrib.auth.models import User
-from .models import Profile
+from core.models import Profile
 
 from django.contrib import messages
 
@@ -340,14 +315,7 @@ def posts_by_tag(request, slug):
     return render(request, 'postsbytag.html', { 'posts': posts })
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
-    model = Post
-    fields = ['category', 'title', 'content', 'image', 'tags']
-    template_name = 'post_form.html'
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
     
     
     

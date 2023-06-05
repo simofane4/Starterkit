@@ -19,6 +19,8 @@ from skote import views
 from .views import MyPasswordSetView ,MyPasswordChangeView
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 handler404 = 'skote.views.custom_page_not_found_view'
@@ -31,19 +33,15 @@ urlpatterns = [
     # External User View
     path('',views.HomeView.as_view(),name='home'),
     # Ecomerce  View ______________
-    # About us 
-    path('about/', views.AboutView.as_view(),name='about'),
     path('shop/', views.ShopView.as_view(),name='shop'),
-    path('blog/', views.BlogView.as_view(),name='blog'),
-    path('contact/', views.ContactView.as_view(),name='contact'),
-    
-    
     # Dashboards View
-    
     path('dashboard/',views.DashboardView.as_view(),name='dashboard'),
     # Layouts
     path('layout/',include('layout.urls')),
-    
+    #user_admin
+    path('user-admin/',include('user_admin.urls')),
+    #bog
+    path('blog/',include('blog.urls')),
     # Allauth
     path('account/', include('allauth.urls')),
     path('auth-logout/',TemplateView.as_view(template_name="account/logout-success.html"),name ='pages-logout'),
@@ -54,3 +52,5 @@ urlpatterns = [
     path('accounts/password/set/', login_required(MyPasswordSetView.as_view()), name="account_set_password"),
 ]
 
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
