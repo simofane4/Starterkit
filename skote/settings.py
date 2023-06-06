@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'ecommerce',
     'blog',
     # Third Party App
+    'widget_tweaks',
     'crispy_forms',
     'django.contrib.sites',
     'django.contrib.humanize',
@@ -151,6 +152,8 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 STATIC_ROOT = os.path.join(BASE_DIR,'assets')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 
 AUTHENTICATION_BACKENDS = [
     

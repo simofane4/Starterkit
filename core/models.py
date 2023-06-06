@@ -289,7 +289,7 @@ class Post(models.Model):
             tag_dict.save()
 
     def get_absolute_url(self):
-        return reverse('post_detail', kwargs={"slug":self.slug})
+        return reverse('post-detail', kwargs={"slug":self.slug})
 
     def get_like_url(self):
         return reverse('like-toggle', kwargs={"slug":self.slug})
