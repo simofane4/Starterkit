@@ -1,5 +1,6 @@
 {% extends 'blog/partials/base.html' %}
 {% load static %}
+{% load widget_tweaks %} 
 
 
 {% block content %}
@@ -59,27 +60,38 @@
                             </div>
 
                             <!--Comment box -->
-                            <div class="comment_box_form mt-80">
+                            <div class="comment_box_form mt-10">
+                                {% for comment in  comments %}
+                                <div class="single_blog_post mb-10">
+                        
+                                    <div class="post_content_meta">
+                                        <div class="post_meta ">
+                                            <ul>            
+                                                <li>{{comment.name}}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="blog_post_desc">
+                                            <p>{{comment.body}}</p>
+                                            <a href="#">REPLY</a> 
+                                        </div>
+        
+                                    </div>
+                                </div>
+                                {% endfor %}
                                 <div class="comment_box_title">
                                     <h3>Leave A Comment</h3>
-                                    <p>Your email address will not be published. Required fields are marked *</p>
                                 </div>
 
                                 <div class="leave_comment_form">
-                                    <form action="#">
-                                        <div class="text-areabox">
-                                            <textarea placeholder="Type Your Comment *"></textarea>
-                                        </div>
+                                    <form method='post' action='.'>
+                                        {% csrf_token %}
                                         <div class="input_box half_left">
-                                            <input type="text" placeholder="Your Name *" >
-
+                                            {% render_field comment_form.name placeholder="Your Name *" %}
                                         </div>
-                                        <div class="input_box half_right">
-                                            <input type="email" placeholder="Your Email *" >
+                                        <div class="text-areabox">
+                                           {% render_field comment_form.body  placeholder="Type Your Comment" %}
                                         </div>
-                                        <div class="input_box">
-                                            <input type="text" placeholder="Your Website" >
-                                        </div>
+        
                                         <div class="submit_button_inner">
                                             <button type="submit">Submit Comment</button>
                                         </div>
@@ -147,7 +159,6 @@
                                 <ul>
                                     {% for tag in post.tags.all %}
                                         <li><a href="#{% comment "" %}{% url 'posts_by_tag' tag.slug %}{% endcomment %}">{{tag.name}}</a></li>
-                                        
                                     {% endfor %}
                                 </ul>
                                 </div>

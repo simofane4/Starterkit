@@ -9,24 +9,26 @@
 
             {% for post in posts %}
                 <div class="col-lg-4 col-md-6">
-                    <div class="single_blog_post mb-40">
+                    <div class="single_blog_post mb-40">*
+                        {% if post.image %}
                         <div class="post_thumbnail">
-                            <a href="blog-details.html"><img src="{% static 'blog/img/blog/1.jpg' %}" alt=""></a>
+                            <a href="{%url "post-detail" post.slug %}"><img src="{{post.image.url}}" alt=""></a>
                         </div>
+                        {% endif %}
                         <div class="post_content_meta">
                             <div class="post_meta">
                                 <ul>            
                                     <li>{{post.created_on}}.</li>
-                                    <li>400+ View </li>
+                                    <li> {{post.read_count}}+ View </li>
                                     <li><a href="#"> {{post.likes.count}} </a></li>
                                 </ul>
                             </div>
                             <div class="blog_post_desc">
-                                <h2><a href="blog-details.html"> {{post.title}} </a></h2>
+                                <h2><a href="{%url "post-detail" post.slug %}"> {{post.title}} </a></h2>
                                 <p> {{post.content|slice:"0:200" }} </p>
                             </div>
                             <div class="read_more_btn">
-                                <a href="#">Read More <span><i class="zmdi zmdi-arrow-right"></i></span></a>
+                                <a href="{%url "post-detail" post.slug %}">Read More <span><i class="zmdi zmdi-arrow-right"></i></span></a>
                             </div>
                         </div>
                     </div>
