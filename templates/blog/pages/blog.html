@@ -25,7 +25,9 @@
                             </div>
                             <div class="blog_post_desc">
                                 <h2><a href="{%url "post-detail" post.slug %}"> {{post.title}} </a></h2>
-                                <p> {{post.content|slice:"0:200" }} </p>
+                                {% comment "post content slice" %}
+                                <p> {{post.content|slice:"0:100" }} </p>
+                                {% endcomment %}
                             </div>
                             <div class="read_more_btn">
                                 <a href="{%url "post-detail" post.slug %}">Read More <span><i class="zmdi zmdi-arrow-right"></i></span></a>

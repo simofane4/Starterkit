@@ -46,6 +46,8 @@
             </div>
 
 		<!-- all js here -->
+        {% block js %}
+        {% endblock js %}
         <script src="{% static 'blog/js/vendor/jquery-1.12.0.min.js' %}"></script>
         <script src="{% static 'blog/js/popper.js' %}"></script>
         <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>

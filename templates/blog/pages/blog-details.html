@@ -72,7 +72,9 @@
                                         </div>
                                         <div class="blog_post_desc">
                                             <p>{{comment.body}}</p>
-                                            <a href="#">REPLY</a> 
+                                            <a id="createFormLink">REPLY</a> 
+                                            <div class="blog_post_desc" id="formContainer" >
+                                            </div>
                                         </div>
         
                                     </div>
@@ -174,3 +176,63 @@
 <!--Our blob page-->
 
 <!--Our blob page end-->
+{% block js %}
+
+    <script>
+        function createForm(com_id) {
+          var formContainer = document.getElementById('formContainer');
+    
+          // Create a Django form object
+          var form = document.createElement('form');
+          form.action = 'post-detail'; // Replace with your actual form endpoint URL
+          form.method = 'POST'; // Replace with your desired form submission method
+    
+          // Create a CSRF token input field
+          var csrfToken = document.createElement('input');
+          csrfToken.type = 'hidden';
+          csrfToken.name = 'csrfmiddlewaretoken';
+          csrfToken.value = '{{ csrf_token }}'; // Replace with your actual CSRF token value
+          form.appendChild(csrfToken);
+    
+          // Create a Django form field for a text input
+          var textField = document.createElement('input');
+          textField.type = 'hidden';
+          textField.name = 'parent_id'; // Replace with your actual field name
+          textField.placeholder = 'Enter text';
+          textField.value = com_id;
+          form.appendChild(textField);
+          
+    
+          // Create a Django form field for a checkbox
+          var commentName = document.createElement('input');
+          commentName.type = 'text';
+          commentName.name = 'name'; // Replace with your actual field name
+          commentName.placeholder = 'Your Name *';
+          commentName.id = 'id_name'
+          commentName.required
+           // Replace with your actual field name
+          form.appendChild(commentName);
+    
+          // Create a submit button
+          var commentBody = document.createElement('textarea');
+        
+          commentBody.name = 'body'; // Replace with your actual field name
+          commentBody.placeholder = 'Reply *';
+          commentBody.id = 'id_body'
+          commentBody.required
+          commentBody.cols = "30"
+          commentBody.rows="10"
+          form.appendChild(commentBody);
+          var submitBtn = document.createElement('button');
+            submitBtn.type = 'submit';
+            submitBtn.value = 'Submit';
+            form.appendChild(submitBtn)
+           // Append the form to the container
+          formContainer.appendChild(form);
+        }
+    
+        var createFormLink = document.getElementById('createFormLink');
+        createFormLink.addEventListener('click', createForm);
+      </script>
+
+{% endblock js %}
