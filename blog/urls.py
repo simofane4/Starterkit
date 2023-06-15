@@ -3,6 +3,7 @@ from blog import views
 
 
 
+
 urlpatterns=[
     # About us 
     path('about/', views.AboutView.as_view(),name='about'),
@@ -12,6 +13,8 @@ urlpatterns=[
     path('post-detail/<slug:slug>/', views.postdetail,name="post-detail"),
     path('detail/<slug:slug>/Favourites', views.Favorites, name='Favorites'),
     #path('detail/<slug:slug>/update/', PostUpdateView.as_view(), name='post-update'),
+    path('post/like/<slug:slug>/', views.PostLikeToggle.as_view(), name='like-toggle'),
+    path('api/like/<slug:slug>/', views.PostLikeAPIToggle.as_view(), name='like-api-toggle'),
     
     
-    ]
+    ] 

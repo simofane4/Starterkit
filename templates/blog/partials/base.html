@@ -18,6 +18,8 @@
         <link rel="stylesheet" href="{% static 'blog/css/bundle.css' %}">
         <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
         <link rel="stylesheet" href="{% static 'blog/css/responsive.css' %}">
+        {% block css %}
+        {% endblock css %}
         
         <script src="{% static 'blog/js/vendor/modernizr-2.8.3.min.js' %}"></script>
     </head>

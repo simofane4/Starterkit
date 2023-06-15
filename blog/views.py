@@ -297,15 +297,6 @@ class ProfileUpdateView(LoginRequiredMixin, TemplateView):
 
 
 
-class PostUpdateView(LoginRequiredMixin, UpdateView):
-    model = Post
-    fields = ['title', 'content','image','tags']
-
-    template_name ='post_form.html'
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
 
 
 def posts_by_tag(request, slug):

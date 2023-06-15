@@ -3,6 +3,8 @@
 {% load widget_tweaks %} 
 
 
+
+
 {% block content %}
         <div class="our_blog_area single_blog right_sidebar ptb-100">
             <div class="container">
@@ -28,8 +30,11 @@
                                         </div>
                                         <div class="single_post_right_meta">
                                             <ul>
-                                                <li>{{ comments.count }} Comment{{comments|pluralize }}</li>
-                                                <li>{{ post.likes.count }} </li>
+                                                <li>{{ comments.count }} Comment{{comments|pluralize }} <i class="zmdi zmdi-comment-alt-text ml-1"></i></li>
+                                                <li>{{ post.likes.count }} <a data-href='{{ post.get_api_like_url }}'  data-likes="{{ post.likes.count }}" href=""> <i class="zmdi zmdi-thumb-up ml-1"></i> </a></li>
+                                                {% if post.author == user %}
+                                                <li><a  href="{% url "post-update" post.slug %}">Update <i class="zmdi zmdi-edit ml-1"></i></a></li>
+                                                {% endif %}
                                             </ul>
                                         </div>
                                     </div>
@@ -56,30 +61,54 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--administrator end-->
+                                <!--administrator end -->
+                                <!-- post  update start-->
+                                <div class="administrator">
+                                    <div class="submit_button_inner">
+                                        <a  href="#">update</a>
+                                    </div>
+                                </div>
+                                <!-- post  update end-->
                             </div>
 
                             <!--Comment box -->
                             <div class="comment_box_form mt-10">
                                 {% for comment in  comments %}
-                                <div class="single_blog_post mb-10">
-                        
-                                    <div class="post_content_meta">
-                                        <div class="post_meta ">
-                                            <ul>            
-                                                <li>{{comment.name}}</li>
-                                            </ul>
-                                        </div>
-                                        <div class="blog_post_desc">
-                                            <p>{{comment.body}}</p>
-                                            <a id="createFormLink">REPLY</a> 
-                                            <div class="blog_post_desc" id="formContainer" >
+                                    <div class="single_blog_post mb-10">
+                            
+                                        <div class="post_content_meta">
+                                            <div class="post_meta ">
+                                                <ul>            
+                                                    <li>{{comment.name}}</li>
+                                                </ul>
                                             </div>
+                                            <div class="blog_post_desc">
+                                                <p>{{comment.body}}</p>
+                                                <a id="reply" onclick="createForm({{comment.id}})">REPLY</a> 
+                                                <div class="leave_comment_form mt-2" id="formContainer" >
+                                                </div>
+                                            </div>
+                                            {% for reply in comment.replies.all %}
+                                            <div class="post_content_meta ml-5">
+                                                <div class="post_meta ">
+                                                    <ul>            
+                                                        <li>{{reply.name}}</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="blog_post_desc">
+                                                    <p>{{reply.body}}</p>
+                                                    
+                                                </div>
+                                               
+                
+                                            </div>
+                                            {% endfor %}
+            
                                         </div>
-        
                                     </div>
-                                </div>
-                                {% endfor %}
+                                {% endfor %} 
+                                
+                                
                                 <div class="comment_box_title">
                                     <h3>Leave A Comment</h3>
                                 </div>
@@ -184,7 +213,7 @@
     
           // Create a Django form object
           var form = document.createElement('form');
-          form.action = 'post-detail'; // Replace with your actual form endpoint URL
+           // Replace with your actual form endpoint URL
           form.method = 'POST'; // Replace with your desired form submission method
     
           // Create a CSRF token input field
@@ -199,10 +228,11 @@
           textField.type = 'hidden';
           textField.name = 'parent_id'; // Replace with your actual field name
           textField.placeholder = 'Enter text';
-          textField.value = com_id;
+          textField.value = com_id ;
           form.appendChild(textField);
-          
-    
+          var inputBox = document.createElement('div');
+          inputBox.classList.add('input_box','half_left');
+          form.appendChild(inputBox);
           // Create a Django form field for a checkbox
           var commentName = document.createElement('input');
           commentName.type = 'text';
@@ -211,9 +241,13 @@
           commentName.id = 'id_name'
           commentName.required
            // Replace with your actual field name
-          form.appendChild(commentName);
+          inputBox.appendChild(commentName);
     
           // Create a submit button
+          var areaBox = document.createElement('div');
+          areaBox.classList.add('text-areabox');
+          form.appendChild(areaBox);
+
           var commentBody = document.createElement('textarea');
         
           commentBody.name = 'body'; // Replace with your actual field name
@@ -222,17 +256,26 @@
           commentBody.required
           commentBody.cols = "30"
           commentBody.rows="10"
-          form.appendChild(commentBody);
-          var submitBtn = document.createElement('button');
-            submitBtn.type = 'submit';
-            submitBtn.value = 'Submit';
-            form.appendChild(submitBtn)
+          areaBox.appendChild(commentBody);
+
+          var submitBT = document.createElement('div');
+          submitBT.classList.add('submit_button_inner');
+          form.appendChild(submitBT);
+
+        var submitBtn = document.createElement('button');
+        submitBtn.type = 'submit';
+        submitBtn.value = 'Submit';
+        submitBtn.innerHTML  = 'Reply';
+        submitBT.appendChild(submitBtn)
            // Append the form to the container
           formContainer.appendChild(form);
+        var replyBt = document.getElementById('reply');
+        replyBt.removeAttribute('onclick');
         }
-    
-        var createFormLink = document.getElementById('createFormLink');
-        createFormLink.addEventListener('click', createForm);
+
+        
+        
+        
       </script>
 
 {% endblock js %}
