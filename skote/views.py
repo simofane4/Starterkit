@@ -1,6 +1,6 @@
 from django.http import request
 from django.shortcuts import redirect, render
-from django.views import View   
+from django.views import View 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
 from allauth.account.views import PasswordSetView,PasswordChangeView
@@ -33,12 +33,7 @@ class AboutView(View):
         greeting['heading'] = "Home"
         greeting['pageview'] = "About-us"
         return render(request,'blog/pages/about-us.html',greeting)
-class ShopView(View):
-    def get(self, request):
-        greeting = {}
-        greeting['heading'] = "Home"
-        greeting['pageview'] = "Shop"
-        return render(request,'blog/pages/shop.html',greeting)
+
 class BlogView(View):
     def get(self, request):
         greeting = {}

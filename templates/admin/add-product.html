@@ -1,0 +1,179 @@
+{% extends 'partials/base.html' %} 
+{% load static %}
+{% load crispy_forms_tags%} 
+{% block contents %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Tinymce wysihtml5</h4>
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div id="div_id_name" class="form-group mt-2">
+                        <label for="id_name" class="requiredField">
+                            Nom du produit<span class="asteriskField">*</span>
+                        </label>
+                        <div>
+                            <input type="text" name="name" maxlength="150" class="form-control form-control-lg"
+                                required id="id_name" />
+                        </div>
+                    </div>
+                    <div id="div_id_category" class="form-group mt-2">
+                        <label for="id_category" class="requiredField">
+                            Catégorie du produit<span class="asteriskField">*</span>
+                        </label>
+                        <div class="inner mb-3 row" >
+                            
+                            <div class="col-md-10 col-8" >
+                            
+                                <select name="category" class="form-select" required id="id_category">
+                                    {% for c  in category %}
+                                    <option value='{{c.id}}' >{{c.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-4" >
+                            
+                                <div class="d-grid" >
+                            
+                                    <button  type="button" class="btn btn-success inner" data-bs-toggle="modal" data-bs-target="#AddCategory"
+                                     >Add</button>
+                            
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div id="div_id_short_desc" class="form-group mt-2">
+                        <label for="id_short_desc" class="requiredField">
+                            Description courte<span class="asteriskField">*</span>
+                        </label>
+                        <div>
+                            <input type="text" name="short_desc" maxlength="150"
+                                class="form-control form-control-lg" required id="id_short_desc" />
+                        </div>
+                    </div>
+                    <div id="div_id_long_desc" class="form-group mt-2">
+                        <label for="id_long_desc" class="requiredField">
+                            Description longue<span class="asteriskField">*</span>
+                        </label>
+                        <div>
+                            <textarea name="long_desc" cols="40" rows="10" class="textarea form-control" 
+                                id="elm1"></textarea>
+                        </div>
+                    </div>
+                    <div id="div_id_price" class="form-group mt-2">
+                        <label for="id_price" class="requiredField">
+                            Prix HT du produit<span class="asteriskField">*</span>
+                        </label>
+                        <div>
+                            <input type="number" name="price" step="any" class="numberinput form-control" required
+                                id="id_price" />
+                        </div>
+                    </div>
+                    <div id="div_id_vat" class="form-group mt-2">
+                        <label for="id_vat" class="requiredField">
+                            Taux de TVA<span class="asteriskField">*</span>
+                        </label>
+
+                        <div class="inner mb-3 row" >
+                            <div class="col-md-10 col-8" >
+                                
+                                <select name="vat" class="form-select" required id="id_vat">
+                                    {% for t in tva  %}
+                                    <option value='{{t.id}}' >{{t.percent}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-4" >
+                            
+                                <div class="d-grid" >
+                            
+                                    <button  type="submit" class="btn btn-success inner" data-bs-toggle="modal" data-bs-target="#AddTva"
+                                    >Add</button>
+                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="div_id_thumbnail" class="form-group mt-2 mb-3">
+                        <label for="id_thumbnail" class="requiredField">
+                            Miniature du produit<span class="asteriskField">*</span>
+                        </label>
+                        <div>
+                            <input type="file" name="thumbnail" accept="image/*"
+                                class="form-control" required id="formFile" />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+
+                <!-- end add category  modal fade-->
+
+                <div class="modal fade" id="AddCategory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">New Category</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="{% url 'add-category' %}">
+                                    {% csrf_token %}
+                                    {{category_form|crispy}}
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Add New</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end add category -->
+                <!-- end add Tva  modal fade-->
+
+                <div class="modal fade" id="AddTva" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">New TVA</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="{% url 'add-tva' %}">
+                                    {% csrf_token %}
+                                    {{tva_form|crispy}}
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Add New</button>
+                                    </div> 
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end add Tva -->
+
+
+            </div>
+        </div>
+    </div>
+    <!-- end col -->
+    
+
+
+</div>
+<!-- end row -->
+{% endblock %} {% block extra_javascript %}
+<!--tinymce js-->
+<script src="{% static 'libs/tinymce/tinymce.min.js' %}"></script>
+
+<!-- init js -->
+<script src="{% static 'js/pages/form-editor.init.js' %}"></script>
+{% endblock %}

@@ -32,12 +32,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # External User View
     path('',views.HomeView.as_view(),name='home'),
-    # Ecomerce  View ______________
-    path('shop/', views.ShopView.as_view(),name='shop'),
+    
+    
     # Dashboards View
     path('dashboard/',views.DashboardView.as_view(),name='dashboard'),
     # Layouts
     path('layout/',include('layout.urls')),
+    # Ecomerce  View ______________
+    path('shop/', include('ecommerce.urls')),
     #user_admin
     path('user-admin/',include('user_admin.urls')),
     #bog

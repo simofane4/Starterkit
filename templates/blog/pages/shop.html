@@ -146,6 +146,7 @@
                         <div class="tab-content">
                             <div class="tab-pane active show fade" id="grid_view" role="tabpanel">
                                 <div class="row">
+                                    {% for product in object_list %}
                                     <div class="col-lg-4 col-md-6 col-12">
                                         <div class="single__product">
                                             <span class="pro_badge">Sale</span>
@@ -169,245 +170,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/5.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                            <span class="pro_badge">New</span>
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/6.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/8.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                             <span class="pro_badge">new</span>
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/7.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                            <span class="pro_badge">Sale</span>
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/9.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="discount_price">-15%</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                            <span class="pro_badge">Sale</span>
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/5.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="discount_price">-08%</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/6.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/8.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                            <span class="pro_badge">Sale</span>
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/4.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="discount_price">-08%</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/5.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="single__product">
-                                            <div class="produc_thumb">
-                                                <a href="#"><img src="{% static 'blog/img/product/home2/6.png' %}" alt=""></a>
-                                            </div>
-                                            <div class="product_hover">
-                                                <div class="product_action">
-                                                    <a href="#" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh-alt"></i></a>
-                                                </div>
-                                                <div class="product__desc">
-                                                    <h3><a href="product-details.html">Soffer Pro x33</a></h3>
-                                                    <div class="price_amount">
-                                                        <span class="current_price">$2999.99</span>
-                                                        <span class="old_price">$3700.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% empty %}
+
+                                    {% endfor %}
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="list_view" role="tabpanel">
@@ -572,15 +337,35 @@
                     <div class="col-12">
                         <div class="pagination">
                             <ul>
-                                <li><a href="#"><i class="zmdi zmdi-chevron-left"></i> prev</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li class="active">4</li>
+                                {% if page_obj.has_previous %}
+                        <li><a href="?page={{page_obj.previous_page_number}}"><i class="zmdi zmdi-chevron-left"></i> prev</a></li>
+                            {% if page_obj.number > 3 %}
+                            <li><a href="?page=1">1</a></li>
+                                {% if page_obj.number > 4 %}
                                 <li>..</li>
-                                <li><a href="#">8</a></li>
-                                <li><a href="#">9</a></li>
-                                <li><a href="#">next<i class="zmdi zmdi-chevron-right"></i></a></li>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                        
+                        {% for num in page_obj.paginator.page_range %}
+                                {% if page_obj.number == num %}
+                                    <li class="active" ><a href="?page={{ num }}">{{ num }}</a></li>
+                                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                    <li><a href="?page={{ num }}">{{ num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        
+                        {% if page_obj.has_next %}
+                            {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+                                <li>..</li>
+                                <li><a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+                            {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+                                <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                            {% endif %}
+
+                            <li><a href="?page={{page_obj.next_page_number}}">next<i class="zmdi zmdi-chevron-right"></i></a></li>
+                        {% endif %}
                             </ul>
                         </div>
                     </div>

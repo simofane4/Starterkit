@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from core.models import Post
+from core.models import Post , VAT , Category
 
 
 
@@ -14,3 +14,16 @@ class PostCreateForm(ModelForm):
     class Meta:
         model = Post
         fields = ['title','image', 'content',  'tags']
+        
+        
+        
+class TvaCreateForm(ModelForm):
+    class Meta:
+        model = VAT
+        fields = ['percent']
+        
+        
+class CategoryCreatForm(ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name','short_desc','parent_category']

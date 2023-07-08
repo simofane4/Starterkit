@@ -1,4 +1,5 @@
 from django.views import View
+from django.views.generic import ListView
 from core.models import *
 from core.forms import RegisterForm, RegisterFormUpdate, AddAddress
 from django.contrib import messages
@@ -21,7 +22,18 @@ class HomeView(View):
         greeting['pageview'] = "Home"        
         return render(request, 'blog/index.html',greeting)
     
-    
+
+class ProductListView(ListView):
+    model = Product
+    paginate_by = 24  # if pagination is desired
+    template_name = 'blog/pages/shop.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        #context["now"] = timezone.now()
+        return context
+
 
 def index(request):
     products = Product.objects.select_related('vat').order_by('-id')[:5]
