@@ -1,5 +1,5 @@
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 from core.models import *
 from core.forms import RegisterForm, RegisterFormUpdate, AddAddress
 from django.contrib import messages
@@ -33,6 +33,14 @@ class ProductListView(ListView):
         
         #context["now"] = timezone.now()
         return context
+    
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'blog/pages/product-details.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)   
+        return context
+    
 
 
 def index(request):
